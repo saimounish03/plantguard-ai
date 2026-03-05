@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   PlantGuard AI — Design Tokens
+   Palette: Forest Green + Warm Cream + Earthy Brown
+   ========================================================= */
+
+/* Bricolage Grotesque — Display headings */
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Plus Jakarta Sans — Body text */
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("/assets/fonts/PlusJakartaSans-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Background: warm cream */
+    --background: 0.978 0.008 90;
+    /* Foreground: deep earthy dark */
+    --foreground: 0.18 0.03 55;
+
+    /* Card: off-white cream */
+    --card: 0.99 0.005 90;
+    --card-foreground: 0.18 0.03 55;
+
+    /* Popover */
+    --popover: 0.99 0.005 90;
+    --popover-foreground: 0.18 0.03 55;
+
+    /* Primary: rich forest green */
+    --primary: 0.38 0.12 145;
+    --primary-foreground: 0.99 0.004 90;
+
+    /* Secondary: light sage */
+    --secondary: 0.93 0.03 140;
+    --secondary-foreground: 0.25 0.06 145;
+
+    /* Muted: very light green-cream */
+    --muted: 0.95 0.015 140;
+    --muted-foreground: 0.5 0.04 145;
+
+    /* Accent: earthy brown */
+    --accent: 0.52 0.07 55;
+    --accent-foreground: 0.98 0.005 90;
+
+    /* Destructive: warm red */
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0 0;
+
+    /* Border */
+    --border: 0.88 0.025 140;
+    --input: 0.9 0.02 140;
+    --ring: 0.38 0.12 145;
+
+    /* Chart colors */
+    --chart-1: 0.48 0.15 145;
+    --chart-2: 0.65 0.18 145;
+    --chart-3: 0.75 0.12 90;
+    --chart-4: 0.82 0.14 55;
+    --chart-5: 0.55 0.22 25;
+
+    /* Sidebar */
+    --sidebar: 0.25 0.06 145;
+    --sidebar-foreground: 0.97 0.008 90;
+    --sidebar-primary: 0.55 0.16 145;
+    --sidebar-primary-foreground: 0.99 0.004 90;
+    --sidebar-accent: 0.32 0.08 145;
+    --sidebar-accent-foreground: 0.97 0.008 90;
+    --sidebar-border: 0.32 0.08 145;
+    --sidebar-ring: 0.55 0.16 145;
+
+    /* Custom app tokens */
+    --green-deep: oklch(0.28 0.1 145);
+    --green-forest: oklch(0.38 0.12 145);
+    --green-medium: oklch(0.5 0.15 145);
+    --green-light: oklch(0.7 0.14 145);
+    --green-pale: oklch(0.93 0.04 140);
+    --cream-warm: oklch(0.978 0.008 90);
+    --cream-off: oklch(0.96 0.014 90);
+    --brown-earth: oklch(0.45 0.09 55);
+    --brown-light: oklch(0.62 0.07 55);
+    --severity-healthy: oklch(0.48 0.15 145);
+    --severity-mild: oklch(0.72 0.18 80);
+    --severity-severe: oklch(0.55 0.22 25);
+  }
+
+  .dark {
+    --background: 0.145 0 0;
+    --foreground: 0.985 0 0;
+    --card: 0.205 0 0;
+    --card-foreground: 0.985 0 0;
+    --popover: 0.269 0 0;
+    --popover-foreground: 0.985 0 0;
+    --primary: 0.55 0.16 145;
+    --primary-foreground: 0.12 0.04 145;
+    --secondary: 0.269 0 0;
+    --secondary-foreground: 0.985 0 0;
+    --muted: 0.269 0 0;
+    --muted-foreground: 0.708 0 0;
+    --accent: 0.371 0 0;
+    --accent-foreground: 0.985 0 0;
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.205 0 0;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 15%;
+    --ring: 0.55 0.16 145;
+    --chart-1: 0.55 0.16 145;
+    --chart-2: 0.696 0.17 145;
+    --chart-3: 0.769 0.14 90;
+    --chart-4: 0.627 0.12 55;
+    --chart-5: 0.55 0.22 25;
+    --sidebar: 0.205 0 0;
+    --sidebar-foreground: 0.985 0 0;
+    --sidebar-primary: 0.55 0.16 145;
+    --sidebar-primary-foreground: 0.985 0 0;
+    --sidebar-accent: 0.269 0 0;
+    --sidebar-accent-foreground: 0.985 0 0;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.55 0.16 145;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  /* Leaf decorative SVG backgrounds */
+  .leaf-corner-tl::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 120px;
+    height: 120px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M10 90 Q50 10 90 10 Q90 50 10 90Z' fill='%232d8a3e' opacity='0.12'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+  }
+
+  .leaf-corner-br::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M90 10 Q50 90 10 90 Q10 50 90 10Z' fill='%231a5c2a' opacity='0.1'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+  }
+
+  .text-gradient-green {
+    background: linear-gradient(135deg, oklch(0.45 0.16 145), oklch(0.62 0.18 145));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .confidence-ring {
+    transition: stroke-dashoffset 1s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
